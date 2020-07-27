@@ -32,12 +32,16 @@ class Bot {
 
   makeMove(gamestate) {
     const previousRoundNumber = gamestate.rounds.length - 1;
+
     if (gamestate.rounds.length > 0) {
-      return this.returnMoveBasedOnPreviousRound(
-        gamestate.rounds[previousRoundNumber]
-      );
-    } else {
+      if (this.dynamiteCounter === 100) {
+        return this.returnMoveBasedOnPreviousRound(
+          gamestate.rounds[previousRoundNumber]
+        );
+      }
       return this.returnDynamiteIfAnyLeft();
+    } else {
+      return "P";
     }
   }
 }

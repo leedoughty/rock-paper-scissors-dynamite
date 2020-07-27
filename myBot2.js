@@ -1,12 +1,12 @@
-const moves = ["S", "R", "P", "D", "W"];
-const movesWithoutDynamite = ["S", "R", "P", "W"];
-
 class Bot {
   constructor() {
     this.dynamiteCounter = 0;
   }
 
   makeMove(gamestate) {
+    const moves = ["S", "R", "P", "D", "W"];
+    const movesWithoutDynamite = ["S", "R", "P", "W"];
+
     if (this.dynamiteCounter < 100) {
       this.dynamiteCounter += 1;
       return moves[Math.floor(Math.random() * moves.length)];
