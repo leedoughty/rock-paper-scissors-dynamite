@@ -1,9 +1,3 @@
-/* 
-increment value of object when move is played by p2
-find smallest value in object
-play move to defeat smallest value in object, iterate through object to find smallest value
-*/
-
 class Bot {
   constructor() {
     this.dynamiteCounter = 0;
