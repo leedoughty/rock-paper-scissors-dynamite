@@ -8,7 +8,8 @@ class Bot {
       this.dynamiteCounter++;
       return "D";
     } else {
-      return "P";
+      const moves = ["S", "R", "P", "W"];
+      return moves[Math.floor(Math.random() * moves.length)];
     }
   }
 
@@ -31,17 +32,15 @@ class Bot {
   }
 
   makeMove(gamestate) {
+    console.log(gamestate);
     const previousRoundNumber = gamestate.rounds.length - 1;
 
     if (gamestate.rounds.length > 0) {
-      if (this.dynamiteCounter === 100) {
-        return this.returnMoveBasedOnPreviousRound(
-          gamestate.rounds[previousRoundNumber]
-        );
-      }
-      return this.returnDynamiteIfAnyLeft();
+      return this.returnMoveBasedOnPreviousRound(
+        gamestate.rounds[previousRoundNumber]
+      );
     } else {
-      return "P";
+      return this.returnDynamiteIfAnyLeft();
     }
   }
 }
